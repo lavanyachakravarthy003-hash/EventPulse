@@ -158,35 +158,9 @@ npx prisma db seed
 # 6. Start full-stack development server (Express backend + Vite frontend)
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+
 
 ---
 
-## 4. Postman API Test Suite
 
-The repository includes a ready-to-import Postman Collection v2.1.0:
-- Download via the in-app UI or directly from `http://localhost:3000/api/deliverables/postman?download=true`.
-- Includes test scripts asserting:
-  - `pm.response.to.have.status(200)` on authentication and data reads.
-  - `X-Cache: HIT` header verification on Redis-cached endpoints.
-  - `status === 201` and `expiresAt === now() + 10m` on hold creation.
-  - `status === 409 Conflict` and `doubleBookingsCount === 0` during high-concurrency race condition testing.
-  - `status === 400 Bad Request` (`ERR_HOLD_EXPIRED`) on expired checkout attempts.
 
----
-
-## 5. Deployment Guide
-
-### Deploy to Render
-1. Push code to GitHub.
-2. In [Render Dashboard](https://dashboard.render.com):
-   - **PostgreSQL**: Create a new PostgreSQL database. Copy the internal database URL.
-   - **Redis**: Create a new Redis instance (or use Upstash).
-   - **Web Service**: Connect GitHub repo.
-     - **Build Command**: `npm install && npx prisma generate && npm run build`
-     - **Start Command**: `npm run start`
-     - **Environment Variables**:
-       - `DATABASE_URL`: `postgresql://...`
-       - `REDIS_URL`: `redis://...`
-       - `JWT_SECRET`: `<your_secret_key>`
-       - `PORT`: `3000`
