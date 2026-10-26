@@ -1,0 +1,6 @@
+{
+  "name": "EventPulse - Multi-Tenant Event & Ticket Reservation System",
+  "description": "Multi-tenant event ticketing platform with 10-minute reservation holds, atomic concurrency locking to prevent double-booking, role-based access control, Redis caching, organizer analytics, and comprehensive student submission deliverables.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
